@@ -1,0 +1,11 @@
+charms:
+  THIS_TEXT_IS_USED_FOR_THE_CHARMS_COMMAND:
+    material: PLACEHOLDER
+    name: PLACEHOLDER
+    lore: §4PLACEHOLDER
+    glow: false
+  breaker:
+    material: STICK
+    name: §8Glass Breaker
+    lore: Instantly break glass!
+    glow: true
