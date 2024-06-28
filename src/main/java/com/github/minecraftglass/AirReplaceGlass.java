@@ -15,6 +15,8 @@ import com.github.minecraftglass.MinecraftGlass;
 
 public class AirReplaceGlass implements Listener {
 
+  // Get the MinecraftGlass class that gets fed into the constructor
+  // This is needed to get the config.yml stuff later!
   MinecraftGlass plugin = null;
   public AirReplaceGlass(MinecraftGlass minecraftGlass) {
     plugin = minecraftGlass;
@@ -22,7 +24,8 @@ public class AirReplaceGlass implements Listener {
 
   @EventHandler
   public void onPlayerInteractEvent(PlayerInteractEvent event) {
-    Player player = event.getPlayer();
+    // Initialize strings to compare the item players have with
+    // the item described in the config
     String material;
     String name;
     String lore;
@@ -38,8 +41,9 @@ public class AirReplaceGlass implements Listener {
     } catch (Exception exception) {
       return;
     }
+    // I only retrieve and compare the hammer traits now, but when more
+    // items are added, use a loop to go through the config.
     try {
-    player.sendMessage("3");
     glass_material = plugin.getConfig().getString("glass.hammer.material"
                          ).strip();
     glass_name = plugin.getConfig().getString("glass.hammer.name"
@@ -49,9 +53,12 @@ public class AirReplaceGlass implements Listener {
     } catch (Exception exception) {
       return;
     }
+    // if all 3 things are equal, then replace the clicked glass
+    // block with air. This happens instantly.
     if (material.equals(glass_material) && name.equals(glass_name) && 
         lore.equals(glass_lore)) {
       if (event.getClickedBlock().getType().toString().contains("GLASS")) {
+        Player player = event.getPlayer();
         Block block = event.getClickedBlock();
         Location location = block.getLocation();
         player.getWorld().getBlockAt(location.getBlockX(), location.getBlockY(),
