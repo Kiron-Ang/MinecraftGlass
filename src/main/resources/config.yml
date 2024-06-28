@@ -4,8 +4,8 @@ charms:
     name: PLACEHOLDER
     lore: §4PLACEHOLDER
     glow: false
-  breaker:
+  hammer:
     material: STICK
-    name: §8Glass Breaker
+    name: §8Glass Hammer
     lore: Instantly break glass!
     glow: true
