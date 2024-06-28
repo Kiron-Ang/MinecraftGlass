@@ -89,7 +89,6 @@ implements CommandExecutor {
         glassStack.setItemMeta(glassMeta);
         // Give the player than ran "/glass" the item!
         player.getInventory().addItem(glassStack);
-
       }
     }
     // I need to return "true" or else the server will return an error
