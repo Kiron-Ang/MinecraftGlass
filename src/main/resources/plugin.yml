@@ -1,6 +1,6 @@
 name: MinecraftGlass
 version: 0
-main: com.github.minecraftcharms.MinecraftGlass
+main: com.github.minecraftglass.MinecraftGlass
 description: Implementing new items to work with glass in Minecraft
 author: Kiron-Ang
 website: https://github.com/Kiron-Ang/MinecraftGlass

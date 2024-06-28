@@ -27,7 +27,7 @@ implements CommandExecutor {
     // but do NOT replace it if it already exists (false)
     saveResource("config.yml", false);
     // Register an event
-    Bukkit.getPluginManager().registerEvents(new AirReplaceGlass(), this);
+    Bukkit.getPluginManager().registerEvents(new AirReplaceGlass(this), this);
     // Add an in-game command called "glass" that will use this
     // class to figure out what to do
     this.getCommand("glass").setExecutor(this);
