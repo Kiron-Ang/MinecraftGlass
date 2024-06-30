@@ -1,11 +1,7 @@
 glass:
-  THIS_TEXT_IS_USED_FOR_THE_GLASS_COMMAND:
-    material: PLACEHOLDER
-    name: PLACEHOLDER
-    lore: §4PLACEHOLDER
-    glow: false
   hammer:
     material: STICK
-    name: §8Glass Hammer
+    name: §9Glass Hammer
     lore: Instantly break glass!
-    glow: true
+    glow: false
+    drop: true

@@ -9,17 +9,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.Command;
 import org.bukkit.Material;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+import org.bukkit.entity.HumanEntity;
 
 // All plugins need to extend JavaPlugin
-// Implement CommandExecutor for the /glass command
-public class MinecraftGlass extends JavaPlugin
-implements CommandExecutor {
+public class MinecraftGlass extends JavaPlugin {
   // Run this code when the server enables this plugin 
   @Override
   public void onEnable() {
@@ -37,15 +36,23 @@ implements CommandExecutor {
   @Override
   public boolean onCommand(CommandSender s, Command c, String l,
                            String[] a) {
-    // Test to make sure that two arguments were given
-    if (a.length != 2) {
-      s.sendMessage("Please try again: /glass <PLAYER> <ITEM>");
-      return true;
-    }
-    // Initialize an empty list since ItemMeta lores are stored in a list
-    List<String> loreList = new ArrayList<String>();
-    // Only run the rest of this code if the sender is a player
     if (s instanceof Player) {
+      if (a.length == 0) {
+        s.sendMessage("Please try again: /glass <PLAYER> <ITEM> OR /glass reload");
+        return true;
+      }
+      if (a[0].equals("reload")) {
+        reloadConfig();
+        s.sendMessage("Reloaded MinecraftGlass config.yml");
+        return true;
+      }
+      // Test to make sure that two arguments were given
+      if (a.length != 2) {
+        s.sendMessage("Please try again: /glass <PLAYER> <ITEM> OR /glass reload");
+        return true;
+      }
+      // Initialize an empty list since ItemMeta lores are stored in a list
+      List<String> loreList = new ArrayList<String>();
       // Get the arguments passed to the command
       String playerName = a[0];
       String glassName = a[1];
@@ -89,9 +96,18 @@ implements CommandExecutor {
         glassStack.setItemMeta(glassMeta);
         // Give the player than ran "/glass" the item!
         player.getInventory().addItem(glassStack);
+        s.sendMessage("Added the item to the player's inventory!");
+        return true;
       }
     }
-    // I need to return "true" or else the server will return an error
     return true;
+  }
+
+  public List<String> onTabComplete(CommandSender s, Command c, String l, String[] a) {
+    if (a.length == 2) {
+      Set<String> glass = getConfig().getConfigurationSection("glass").getKeys(false);
+      return new ArrayList<>(glass);
+    }
+    return new ArrayList<>(Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).collect(Collectors.toList()));
   }
 }

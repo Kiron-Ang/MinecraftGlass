@@ -4,11 +4,10 @@ main: com.github.minecraftglass.MinecraftGlass
 description: Implementing new items to work with glass in Minecraft
 author: Kiron-Ang
 website: https://github.com/Kiron-Ang/MinecraftGlass
-load: STARTUP
-prefix: MinecraftGlass
+api-version: 1.21
 commands:
   glass:
-    description: Give a player a new item to work with glass.
+    description: Give a Glass item or reload the plugin.
     permission: minecraftglass.glass
     permission-message: You cannot use this command.
-    usage: /glass <PLAYER> <NAME_OF_ITEM>
+    usage: /glass <PLAYER> <NAME_OF_ITEM> OR /glass reload
