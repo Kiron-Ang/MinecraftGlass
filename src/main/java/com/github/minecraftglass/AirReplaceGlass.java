@@ -33,6 +33,7 @@ public class AirReplaceGlass implements Listener {
     String glass_name;
     String glass_lore;
     try {
+    // Get information on the item that players used to interact
     ItemStack itemStack = event.getItem();
     ItemMeta itemMeta = itemStack.getItemMeta();
     material = itemStack.getType().toString().strip();
@@ -61,6 +62,7 @@ public class AirReplaceGlass implements Listener {
         Player player = event.getPlayer();
         Block block = event.getClickedBlock();
         Location location = block.getLocation();
+        // Get the block at the given location and replace it with AIR
         player.getWorld().getBlockAt(location.getBlockX(), location.getBlockY(),
           location.getBlockZ()).setType(Material.AIR);
       }
