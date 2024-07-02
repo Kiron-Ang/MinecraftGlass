@@ -1,6 +1,6 @@
 # MinecraftGlass
 
-Use Java to create a plugin for Paper Minecraft servers.
+This Paper 1.21 plugin adds glass utilities into Minecraft.
 
 Changes in MinecraftGlass Version 2:
 - PLACEHOLDER
