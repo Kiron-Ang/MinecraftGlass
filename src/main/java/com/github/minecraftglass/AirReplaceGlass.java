@@ -44,12 +44,17 @@ public class AirReplaceGlass implements Listener {
       return;
     }
     Block block = event.getClickedBlock();
-    Material block_material = block.getType();
-    if (material.equals(glass_material) && name.equals(glass_name) && lore.equals(glass_lore) && block != null && block_material.toString().contains("GLASS")) {
+    Material block_material;
+    if (block != null) {
+      block_material = block.getType();
+    } else {
+      return;
+    }
+    if (material.equals(glass_material) && name.equals(glass_name) && lore.equals(glass_lore) && block_material.toString().contains("GLASS")) {
       Player player = event.getPlayer();
       Location location = block.getLocation();
       player.getWorld().getBlockAt(location.getBlockX(), location.getBlockY(), location.getBlockZ()).setType(Material.AIR);
-      if (plugin.getConfig().getString("glass.hammer.drop").equals("true")) {
+      if (MG.getConfig().getString("glass.hammer.drop").equals("true")) {
         ItemStack glassStack = new ItemStack(block_material);
         player.getInventory().addItem(glassStack);
       }

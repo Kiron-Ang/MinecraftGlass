@@ -56,8 +56,8 @@ public class MinecraftGlass extends JavaPlugin {
       glassStack.setItemMeta(glassMeta);
       player.getInventory().addItem(glassStack);
       s.sendMessage("Added the item to the player's inventory!");
-      return true;
     }
+    return true;
   }
 
   public List<String> onTabComplete(CommandSender s, Command c, String l, String[] a) {
