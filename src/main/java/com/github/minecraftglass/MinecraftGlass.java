@@ -16,14 +16,12 @@ import java.util.stream.Collectors;
 import org.bukkit.entity.HumanEntity;
 
 public class MinecraftGlass extends JavaPlugin {
-  @Override
   public void onEnable() {
     saveResource("config.yml", false);
     Bukkit.getPluginManager().registerEvents(new AirReplaceGlass(this), this);
     this.getCommand("glass").setExecutor(this);
   }
 
-  @Override
   public boolean onCommand(CommandSender s, Command c, String l, String[] a) {
     if (a.length == 0) {
       s.sendMessage("Please try again: /glass <PLAYER> <ITEM> OR /glass reload");
