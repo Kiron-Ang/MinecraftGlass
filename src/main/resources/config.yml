@@ -3,5 +3,5 @@ glass:
     material: STICK
     name: §9Glass Hammer
     lore: Instantly break glass!
-    glow: false
     drop: true
+    glow: false
