@@ -5,7 +5,7 @@ This Paper 1.21 plugin adds glass utilities into Minecraft.
 Changes in MinecraftGlass Version 2:
 - PLACEHOLDER
 
-Changes in MinecraftGlass Version 1:
+Changes in MinecraftGlass Version 1 (July 2, 2024):
 - Tested with Paper 1.21 Build #40
 - /glass reload : Reloads the config.yml file
 - /glass [PLAYER_NAME] [ITEM]: Gives a player an item from the config. Currently, the only item is the Glass Hammer.
